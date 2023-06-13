@@ -123,7 +123,36 @@ var Paul_Pio = function (prop) {
                 modules.render(text);
             }
             else{
-                modules.render(prop.content.welcome || "Chào mừng đến với Wiki!");
+                var text, hour = new Date().getHours();
+
+                if (hour > 22 || hour <= 5) {
+                    text = 'Bạn có phải là một con cú đêm? Tôi sẽ không đi ngủ muộn như vậy, vì vậy tôi sẽ dậy sớm vào ngày mai.';
+                }
+                else if (hour > 5 && hour <= 8) {
+                    text = 'Buổi sáng tốt lành!';
+                }
+                else if (hour > 8 && hour <= 11) {
+                    text = 'Buổi sáng tốt lành! Làm việc tốt, đừng ngồi lâu, hãy đứng dậy đi lại!';
+                }
+                else if (hour > 11 && hour <= 14) {
+                    text = 'Bây giờ là buổi trưa, bạn đã làm việc cả buổi sáng, và đã đến giờ ăn trưa!';
+                }
+                else if (hour > 14 && hour <= 17) {
+                    text = 'Bạn rất dễ buồn ngủ vào buổi chiều. Bạn đã hoàn thành mục tiêu hôm nay chưa?';
+                }
+                else if (hour > 17 && hour <= 19) {
+                    text = 'Buổi tối rồi! Hoàng hôn ngoài cửa sổ rất đẹp, đẹp nhất khi hoàng hôn có màu đỏ!!!';
+                }
+                else if (hour > 19 && hour <= 21) {
+                    text = 'Chào buổi tối! Hôm nay bạn thế nào?';
+                }
+                else if (hour > 21 && hour <= 23) {
+                    text = 'Đã khuya rồi, nghỉ ngơi sớm đi, chúc ngủ ngon!';
+                }
+                else{
+                    text = "Bạn đang nhìn gì đấy? Tôi à >.<";
+                }
+                modules.render(text);
             }
         },
         // 触摸
